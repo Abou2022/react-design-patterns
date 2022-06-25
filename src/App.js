@@ -1,18 +1,24 @@
 import { SplitScreen } from "./Components/SplitScreen";
 
-const LeftHandComponent = () => {
-  return <h1 style={{backgroundColor:'gold'}}>Left!</h1>
+const LeftHandComponent = ({name}) => {
+  return <h1 style={{backgroundColor:'gold'}}>{name}</h1>
 }
-const RightHandComponent = () => {
-  return <p style={{backgroundColor:'green'}}>Right!</p>
+const RightHandComponent = ({message}) => {
+  return <h1 style={{backgroundColor:'green'}}>{message}!</h1>
 }
 
 function App() {
   return (
-    <SplitScreen 
-    left={LeftHandComponent}
-    right={RightHandComponent}
-    />
+    // <SplitScreen 
+    // left={LeftHandComponent}
+    // right={RightHandComponent}
+    // leftWeight={1}
+    // rightWeight={3}
+    // />
+    <SplitScreen  leftWeight={3} rightWeight={3}>
+      <LeftHandComponent name='Bak'/>
+      <RightHandComponent message='Hello World'/>
+    </SplitScreen>
      
     
   );
