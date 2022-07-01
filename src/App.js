@@ -1,12 +1,10 @@
-import {CurrentUserLoader} from './CurrentUserLoader'
-import {UserInfo} from './UserInfo'
+import {UncontrolledForm} from './UncontrolledForm'
 
 function App() {
 	return (
-		<CurrentUserLoader>
-      <UserInfo/>
-    </CurrentUserLoader>
+		<UncontrolledForm/>
 	);
+	
 }
 
 export default App;
