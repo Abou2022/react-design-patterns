@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import styled from 'styled-components';
 
 const ModalBackground = styled.div`
@@ -18,21 +18,14 @@ const ModalBody = styled.div`
 	padding: 20px;
 	width: 50%;
 `;
-
-export const Modal = ({ children }) => {
-	const [shouldShow, setShouldShow] = useState(false);
-
-	return (
-		<>
-		<button onClick={() => setShouldShow(true)}>Show Modal</button>
-		{shouldShow && (
-			<ModalBackground onClick={() => setShouldShow(false)}>
+//we gonna pass props
+export const ControlledModal = ({shouldShow, onRequestClose, children }) => {
+	return shouldShow ? (
+			<ModalBackground onClick={onRequestClose}>
 				<ModalBody onClick={e => e.stopPropagation()}>
-					<button onClick={() => setShouldShow(false)}>Hide Modal</button>
+					<button onClick={onRequestClose}>Hide Modal</button>
 					{children}
 				</ModalBody>
 			</ModalBackground>
-		)}
-		</>
-	);
+	) : null;
 }
